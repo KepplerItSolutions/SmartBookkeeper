@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace SmartBookGUI
 {
-    public class BalanceOfAccountsActive : List<Account>
+    public class BalanceOfAccountsActive : Account
     {
         public BalanceOfAccountsActive()
+            :base("Aktiva")
         {
             Buildings = new Account("Gebäude");
             Machines = new Account("Maschinen");

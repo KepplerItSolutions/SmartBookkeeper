@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace SmartBookGUI
 {
-    public class BalanceOfAccountsPassive : List<Account>
+    public class BalanceOfAccountsPassive : Account
     {
         public BalanceOfAccountsPassive()
+            :base("Passiva")
         {
             Equity = new Account("Eigenkapital");
             Mortages = new Account("Hypothek");

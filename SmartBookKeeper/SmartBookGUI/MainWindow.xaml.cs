@@ -27,7 +27,6 @@ namespace SmartBookGUI
         public MainWindow()
         {
             InitializeComponent();
-            tbAmmount.DataContext = this;
             activa = new BalanceOfAccountsActive();
             activa.AuxiliaryMaterials.Ammount = 320000;
             activa.Bank.Ammount = 940000;
@@ -48,7 +47,27 @@ namespace SmartBookGUI
             passiva.Loan.Ammount = 1400000;
             passiva.Mortages.Ammount = 4500000;
             passiva.SalesTaxes.Ammount = 90000;
-            AmmountToBook = 2000000;
+            AmmountToBook = 20000;
+
+            tbAmmount.DataContext = this;
+            tbLoan.DataContext = passiva;
+            tbEquity.DataContext = passiva;
+            tbMortages.DataContext = passiva;
+            tbLiability.DataContext = passiva;
+            tbSalesTaxes.DataContext = passiva;
+
+            tbBuildings.DataContext = activa;
+            tbMachines.DataContext = activa;
+            tbCarPool.DataContext = activa;
+            tbOfficeEquipement.DataContext = activa;
+            tbRawMaterials.DataContext = activa;
+            tbAuxiliaryMaterials.DataContext = activa;
+            tbConsumables.DataContext = activa;
+            tbGoodsInProcess.DataContext = activa;
+            tbFinishedGoods.DataContext = activa;
+            tbReceivables.DataContext = activa;
+            tbCash.DataContext = activa;
+            tbBank.DataContext = activa;
         }
 
         public double AmmountToBook { get; set; }
@@ -58,28 +77,11 @@ namespace SmartBookGUI
             Account accountFrom = null;
             Account accountTo = null;
 
-            switch (tbAccountFrom.Text)
-            {
-                case "Rohstoffe":
-                    accountFrom = activa.RawMaterials;
-                    break;
-                default:
-                    break;
-            }
+            accountFrom = activa[tbAccountFrom.Text];
+            accountTo = activa[tbAccountTo.Text];
 
-            switch (tbAccountTo.Text)
-            {
-                case "Bank":
-                    accountTo = activa.Bank;
-                    break;
-                default:
-                    break;
-            }
-
-            double bookingValue = double.Parse(tbAmmount.Text);
-            accountFrom.Ammount += bookingValue;
-            accountTo.Ammount -= bookingValue;
-
+            accountFrom.Ammount += AmmountToBook;
+            accountTo.Ammount -= AmmountToBook;
         }
     }
 }

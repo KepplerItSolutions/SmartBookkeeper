@@ -7,10 +7,49 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="549.858" Width="918.562" WindowState="Maximized">
     <Grid>
-        <TextBox x:Name="tbAccountFrom" HorizontalAlignment="Left" Height="23" Margin="10,393,0,0" TextWrapping="Wrap" Text="Rohstoffe" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbAmmount" Text="{Binding Path=AmmountToBook, StringFormat='C',UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="135,393,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbAccountTo" HorizontalAlignment="Left" Height="23" Margin="260,393,0,0" TextWrapping="Wrap" Text="Bank" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnAckBooking" Content="Buchen" HorizontalAlignment="Left" Margin="512,393,0,0" VerticalAlignment="Top" Width="75" Click="btnAckBooking_Click"/>
+        <TextBox x:Name="tbAccountFrom" HorizontalAlignment="Left" Height="23" Margin="10,489,0,0" TextWrapping="Wrap" Text="Rohstoffe" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbAmmount" Text="{Binding Path=AmmountToBook, StringFormat='C',UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="135,489,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbAccountTo" HorizontalAlignment="Left" Height="23" Margin="260,489,0,0" TextWrapping="Wrap" Text="Bank" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnAckBooking" Content="Buchen" HorizontalAlignment="Left" Margin="512,489,0,0" VerticalAlignment="Top" Width="75" Click="btnAckBooking_Click"/>
+        <Frame x:Name="frame" Content="Aktiva" HorizontalAlignment="Left" Height="378" Margin="10,10,0,0" VerticalAlignment="Top" Width="497"/>
+        <Frame x:Name="frame1" Content="Passiva" HorizontalAlignment="Left" Height="378" Margin="512,10,0,0" VerticalAlignment="Top" Width="389"/>
+        <Label x:Name="label" Content="1. Gebäude" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbBuildings" HorizontalAlignment="Left" Height="22" Margin="260,75,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Buildings.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy" Content="I. Anlagevermögen" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy1" Content="2. Maschinen" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbMachines" HorizontalAlignment="Left" Height="22" Margin="260,97,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Machines.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy2" Content="3. Fuhrpark" HorizontalAlignment="Left" Margin="30,115,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbCarPool" HorizontalAlignment="Left" Height="22" Margin="260,119,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=CarPool.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy3" Content="4. Betriebs- und Geschäftsaustattung" HorizontalAlignment="Left" Margin="30,137,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbOfficeEquipement" HorizontalAlignment="Left" Height="22" Margin="260,141,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=OfficeEquipement.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy4" Content="1. Rohstoffe" HorizontalAlignment="Left" Margin="30,203,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbRawMaterials" HorizontalAlignment="Left" Height="22" Margin="260,207,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=RawMaterials.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy5" Content="II. Umlaufvermögen" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy6" Content="2. Hilfstoffe" HorizontalAlignment="Left" Margin="30,225,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbAuxiliaryMaterials" HorizontalAlignment="Left" Height="22" Margin="260,229,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=AuxiliaryMaterials.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy7" Content="3. Betriebsstoffe" HorizontalAlignment="Left" Margin="30,247,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbConsumables" HorizontalAlignment="Left" Height="22" Margin="260,251,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Consumables.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy8" Content="4. Unfertige Erzeugnisse" HorizontalAlignment="Left" Margin="30,269,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbGoodsInProcess" HorizontalAlignment="Left" Height="22" Margin="260,273,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding GoodsInProcess.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy9" Content="5. Fertige Erzeugnisse" HorizontalAlignment="Left" Margin="30,290,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbFinishedGoods" HorizontalAlignment="Left" Height="22" Margin="260,294,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=FinishedProducts.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy10" Content="6. Forderungen" HorizontalAlignment="Left" Margin="30,312,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbReceivables" HorizontalAlignment="Left" Height="22" Margin="260,316,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Receivables.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy11" Content="7. Kasse" HorizontalAlignment="Left" Margin="30,334,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbCash" HorizontalAlignment="Left" Height="22" Margin="260,338,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Cash.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy12" Content="8. Bank" HorizontalAlignment="Left" Margin="30,356,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbBank" HorizontalAlignment="Left" Height="22" Margin="260,360,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Bank.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy13" Content="I. Eigenkapital" HorizontalAlignment="Left" Margin="512,40,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbEquity" HorizontalAlignment="Left" Height="22" Margin="767,44,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Equity.Ammount, StringFormat='C',UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy14" Content="1. Hypothek" HorizontalAlignment="Left" Margin="537,110,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbLoan" HorizontalAlignment="Left" Height="22" Margin="767,114,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Mortages.Ammount, StringFormat='C',UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy15" Content="II. Fremdkapital" HorizontalAlignment="Left" Margin="512,79,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy16" Content="2. Darlehen" HorizontalAlignment="Left" Margin="537,132,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbMortages" HorizontalAlignment="Left" Height="22" Margin="767,136,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Loan.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy17" Content="3. Verpflichtungen" HorizontalAlignment="Left" Margin="537,154,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbLiability" HorizontalAlignment="Left" Height="22" Margin="767,158,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Liability.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy18" Content="4. Umsatzsteuer" HorizontalAlignment="Left" Margin="537,176,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSalesTaxes" HorizontalAlignment="Left" Height="22" Margin="767,180,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=SalesTaxes.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
