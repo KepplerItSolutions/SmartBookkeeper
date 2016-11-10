@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystem", "SmartBookKeeper\BookingSystem.csproj", "{5109ADEB-1821-4916-95C9-FFA6A9163077}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartBookGUI", "SmartBookGUI\SmartBookGUI.csproj", "{1FF2B3D1-B100-4A58-9D3B-E6FACFFBFA62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5109ADEB-1821-4916-95C9-FFA6A9163077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5109ADEB-1821-4916-95C9-FFA6A9163077}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5109ADEB-1821-4916-95C9-FFA6A9163077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FF2B3D1-B100-4A58-9D3B-E6FACFFBFA62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF2B3D1-B100-4A58-9D3B-E6FACFFBFA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF2B3D1-B100-4A58-9D3B-E6FACFFBFA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF2B3D1-B100-4A58-9D3B-E6FACFFBFA62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

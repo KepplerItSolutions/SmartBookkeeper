@@ -8,5 +8,11 @@ namespace SmartBookKeeper.BookingSystem
 {
     public class Account
     {
+        public Account(string name)
+        {
+            Name = name;
+        }
+        public String Name { get; set; }
+        public double Ammount { get; set; }
     }
 }
