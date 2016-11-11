@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
+    <Compile Include="Accounts\Account.cs" />
     <Compile Include="Accounts\ActiveAccounts\ActiveAccount.cs" />
+    <Compile Include="Accounts\BalanceOfAccountsActive.cs" />
+    <Compile Include="Accounts\BalanceOfAccountsPassive.cs" />
     <Compile Include="Accounts\PassiveAccounts\PassivAccount.cs" />
+    <Compile Include="Accounts\StockAccounts.cs" />
     <Compile Include="BookEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

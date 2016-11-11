@@ -1,4 +1,5 @@
 ﻿using SmartBookKeeper.BookingSystem;
+using SmartBookKeeper.BookingSystem.Accounts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,67 +22,61 @@ namespace SmartBookGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        BalanceOfAccountsActive activa;
-        BalanceOfAccountsPassive passiva;
+        StockAccounts _stockAccounts;
 
         public MainWindow()
         {
             InitializeComponent();
-            activa = new BalanceOfAccountsActive();
-            activa.AuxiliaryMaterials.Ammount = 320000;
-            activa.Bank.Ammount = 940000;
-            activa.Buildings.Ammount = 6700000;
-            activa.CarPool.Ammount = 300000;
-            activa.Cash.Ammount = 30000;
-            activa.Consumables.Ammount = 130000;
-            activa.FinishedProducts.Ammount = 420000;
-            activa.GoodsInProcess.Ammount = 250000;
-            activa.Machines.Ammount = 2700000;
-            activa.OfficeEquipement.Ammount = 450000;
-            activa.RawMaterials.Ammount = 1200000;
-            activa.Receivables.Ammount = 990000;
+            _stockAccounts = new StockAccounts();
 
-            passiva = new BalanceOfAccountsPassive();
-            passiva.Equity.Ammount = 7740000;
-            passiva.Liability.Ammount = 700000;
-            passiva.Loan.Ammount = 1400000;
-            passiva.Mortages.Ammount = 4500000;
-            passiva.SalesTaxes.Ammount = 90000;
+            _stockAccounts.ActivaAccounts.AuxiliaryMaterials.Ammount = 320000;
+            _stockAccounts.ActivaAccounts.Bank.Ammount = 940000;
+            _stockAccounts.ActivaAccounts.Buildings.Ammount = 6700000;
+            _stockAccounts.ActivaAccounts.CarPool.Ammount = 300000;
+            _stockAccounts.ActivaAccounts.Cash.Ammount = 30000;
+            _stockAccounts.ActivaAccounts.Consumables.Ammount = 130000;
+            _stockAccounts.ActivaAccounts.FinishedProducts.Ammount = 420000;
+            _stockAccounts.ActivaAccounts.GoodsInProcess.Ammount = 250000;
+            _stockAccounts.ActivaAccounts.Machines.Ammount = 2700000;
+            _stockAccounts.ActivaAccounts.OfficeEquipement.Ammount = 450000;
+            _stockAccounts.ActivaAccounts.RawMaterials.Ammount = 1200000;
+            _stockAccounts.ActivaAccounts.Receivables.Ammount = 990000;
+
+            _stockAccounts.PassivaAccounts.Equity.Ammount = 7740000;
+            _stockAccounts.PassivaAccounts.Liability.Ammount = 700000;
+            _stockAccounts.PassivaAccounts.Loan.Ammount = 1400000;
+            _stockAccounts.PassivaAccounts.Mortages.Ammount = 4500000;
+            _stockAccounts.PassivaAccounts.SalesTaxes.Ammount = 90000;
             AmmountToBook = 20000;
 
             tbAmmount.DataContext = this;
-            tbLoan.DataContext = passiva;
-            tbEquity.DataContext = passiva;
-            tbMortages.DataContext = passiva;
-            tbLiability.DataContext = passiva;
-            tbSalesTaxes.DataContext = passiva;
+            tbLoan.DataContext = _stockAccounts.PassivaAccounts;
+            tbEquity.DataContext = _stockAccounts.PassivaAccounts;
+            tbMortages.DataContext = _stockAccounts.PassivaAccounts;
+            tbLiability.DataContext = _stockAccounts.PassivaAccounts;
+            tbSalesTaxes.DataContext = _stockAccounts.PassivaAccounts;
+            tbSumPassiva.DataContext = _stockAccounts.PassivaAccounts;
 
-            tbBuildings.DataContext = activa;
-            tbMachines.DataContext = activa;
-            tbCarPool.DataContext = activa;
-            tbOfficeEquipement.DataContext = activa;
-            tbRawMaterials.DataContext = activa;
-            tbAuxiliaryMaterials.DataContext = activa;
-            tbConsumables.DataContext = activa;
-            tbGoodsInProcess.DataContext = activa;
-            tbFinishedGoods.DataContext = activa;
-            tbReceivables.DataContext = activa;
-            tbCash.DataContext = activa;
-            tbBank.DataContext = activa;
+            tbBuildings.DataContext = _stockAccounts.ActivaAccounts;
+            tbMachines.DataContext = _stockAccounts.ActivaAccounts;
+            tbCarPool.DataContext = _stockAccounts.ActivaAccounts;
+            tbOfficeEquipement.DataContext = _stockAccounts.ActivaAccounts;
+            tbRawMaterials.DataContext = _stockAccounts.ActivaAccounts;
+            tbAuxiliaryMaterials.DataContext = _stockAccounts.ActivaAccounts;
+            tbConsumables.DataContext = _stockAccounts.ActivaAccounts;
+            tbGoodsInProcess.DataContext = _stockAccounts.ActivaAccounts;
+            tbFinishedGoods.DataContext = _stockAccounts.ActivaAccounts;
+            tbReceivables.DataContext = _stockAccounts.ActivaAccounts;
+            tbCash.DataContext = _stockAccounts.ActivaAccounts;
+            tbBank.DataContext = _stockAccounts.ActivaAccounts;
+            tbSumActiva.DataContext = _stockAccounts.ActivaAccounts;
         }
 
         public double AmmountToBook { get; set; }
 
         private void btnAckBooking_Click(object sender, RoutedEventArgs e)
         {
-            Account accountFrom = null;
-            Account accountTo = null;
-
-            accountFrom = activa[tbAccountFrom.Text];
-            accountTo = activa[tbAccountTo.Text];
-
-            accountFrom.Ammount += AmmountToBook;
-            accountTo.Ammount -= AmmountToBook;
+            _stockAccounts.Book(tbAccountFrom.Text, tbAccountTo.Text, AmmountToBook);
         }
     }
 }

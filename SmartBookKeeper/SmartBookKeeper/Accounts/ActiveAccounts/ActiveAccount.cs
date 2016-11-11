@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SmartBookKeeper.BookingSystem.Accounts.ActiveAccounts
 {
-    class ActiveAccount
+    public class ActiveAccount : Account
     {
+        public ActiveAccount(string name, Account parent)
+            :base(name, parent)
+        {
+
+        }
     }
 }

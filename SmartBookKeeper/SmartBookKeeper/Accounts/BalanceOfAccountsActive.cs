@@ -1,29 +1,31 @@
 ﻿using SmartBookKeeper.BookingSystem;
+using SmartBookKeeper.BookingSystem.Accounts;
+using SmartBookKeeper.BookingSystem.Accounts.ActiveAccounts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartBookGUI
+namespace SmartBookKeeper.BookingSystem.Accounts
 {
     public class BalanceOfAccountsActive : Account
     {
         public BalanceOfAccountsActive()
             :base("Aktiva")
         {
-            Buildings = new Account("Gebäude");
-            Machines = new Account("Maschinen");
-            CarPool = new Account("Fuhrpark");
-            OfficeEquipement = new Account("Geschäftsausstattung");
-            RawMaterials = new Account("Rohstoffe");
-            AuxiliaryMaterials = new Account("Hilfsstoffe");
-            Consumables = new Account("Betriebsstoffe");
-            GoodsInProcess = new Account("Unfertige Erzeugnisse");
-            FinishedProducts = new Account("Fertige Erzeugnisse");
-            Receivables = new Account("Forderungen");
-            Cash = new Account("Kasse");
-            Bank = new Account("Bank");
+            Buildings = new ActiveAccount("Gebäude", this);
+            Machines = new ActiveAccount("Maschinen", this);
+            CarPool = new ActiveAccount("Fuhrpark", this);
+            OfficeEquipement = new ActiveAccount("Geschäftsausstattung", this);
+            RawMaterials = new ActiveAccount("Rohstoffe", this);
+            AuxiliaryMaterials = new ActiveAccount("Hilfsstoffe", this);
+            Consumables = new ActiveAccount("Betriebsstoffe", this);
+            GoodsInProcess = new ActiveAccount("Unfertige Erzeugnisse", this);
+            FinishedProducts = new ActiveAccount("Fertige Erzeugnisse", this);
+            Receivables = new ActiveAccount("Forderungen", this);
+            Cash = new ActiveAccount("Kasse", this);
+            Bank = new ActiveAccount("Bank", this);
 
             this.AddRange(new Account[] {
                 Buildings,

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SmartBookKeeper.BookingSystem.Accounts.PassiveAccounts
 {
-    class PassivAccount
+    public class PassivAccount : Account
     {
+        public PassivAccount(string name, Account parent)
+            :base(name, parent)
+        {
+
+        }
     }
 }

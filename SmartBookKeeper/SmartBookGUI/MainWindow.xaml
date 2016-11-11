@@ -50,6 +50,8 @@
         <TextBox x:Name="tbLiability" HorizontalAlignment="Left" Height="22" Margin="767,158,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=Liability.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy18" Content="4. Umsatzsteuer" HorizontalAlignment="Left" Margin="537,176,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbSalesTaxes" HorizontalAlignment="Left" Height="22" Margin="767,180,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=SalesTaxes.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbSumActiva" HorizontalAlignment="Left" Height="22" Margin="260,393,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding SumOfAll, Mode=OneWay, StringFormat=C, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbSumPassiva" HorizontalAlignment="Left" Height="22" Margin="767,393,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding SumOfAll, Mode=OneWay, StringFormat=C, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

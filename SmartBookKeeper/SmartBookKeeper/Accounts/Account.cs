@@ -5,14 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartBookKeeper.BookingSystem
+namespace SmartBookKeeper.BookingSystem.Accounts
 {
-    public class Account : List<Account>, INotifyPropertyChanged
+    public abstract class Account : List<Account>, INotifyPropertyChanged
     {
         public Account(string name)
         {
             Name = name;
         }
+
+        public Account(string name, Account parent)
+            :this(name)
+        {
+            ParentAccount = parent;
+        }
+
+        public Account ParentAccount { get; set; }
+
         public String Name
         {
             get
@@ -41,11 +50,25 @@ namespace SmartBookKeeper.BookingSystem
                 if (_ammount != value)
                 {
                     _ammount = value;
-                    OnPropertyChanged("Ammount");
+                    ParentAccount?.RefreshSumOfAll();
+                    OnPropertyChanged("Ammount");                    
                 }
             }
         }
         double _ammount;
+
+        public double SumOfAll
+        {
+            get { return _sumOfAll; }
+            private set {
+                if (value != _sumOfAll)
+                {
+                    _sumOfAll = value;
+                    OnPropertyChanged("SumOfAll");
+                }
+            }
+        }
+        double _sumOfAll;
 
         public Account this[string key]
         {
@@ -61,7 +84,26 @@ namespace SmartBookKeeper.BookingSystem
                     }
                 }
                 return result;
+            }           
+        }
+
+        public void RefreshSumOfAll()
+        {
+            double lastValue = SumOfAll;
+            SumOfAll = 0;
+            foreach (Account itemAccount in this)
+            {
+                SumOfAll += itemAccount.Ammount;
             }
+            if (lastValue != SumOfAll)
+            {
+                OnPropertyChanged("SumOfAll");
+            }
+        }
+
+        public void Book(double ammount)
+        {
+            Ammount += ammount;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
