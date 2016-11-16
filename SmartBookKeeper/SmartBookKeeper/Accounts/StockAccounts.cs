@@ -46,7 +46,7 @@ namespace SmartBookKeeper.BookingSystem.Accounts
             }
         }
 
-        public void Book(string debitName, string creditName, double ammount)
+        public BookEntry Book(string debitName, string creditName, double ammount)
         {
             Account creditAccount = this[creditName];
             Account debitAccount = this[debitName];
@@ -68,6 +68,8 @@ namespace SmartBookKeeper.BookingSystem.Accounts
             {
                 creditAccount.Ammount += ammount;
             }
+
+            return new BookEntry("", debitAccount, creditAccount, ammount, DateTime.Now);
         }
     }
 }

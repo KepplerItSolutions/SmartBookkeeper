@@ -10,7 +10,7 @@
         <TextBox x:Name="tbAccountFrom" HorizontalAlignment="Left" Height="23" Margin="10,489,0,0" TextWrapping="Wrap" Text="Rohstoffe" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbAmmount" Text="{Binding Path=AmmountToBook, StringFormat='C',UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="135,489,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbAccountTo" HorizontalAlignment="Left" Height="23" Margin="260,489,0,0" TextWrapping="Wrap" Text="Bank" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnAckBooking" Content="Buchen" HorizontalAlignment="Left" Margin="512,489,0,0" VerticalAlignment="Top" Width="75" Click="btnAckBooking_Click"/>
+        <Button x:Name="btnAckBooking" Content="Buchen" HorizontalAlignment="Left" Margin="385,492,0,0" VerticalAlignment="Top" Width="75" Click="btnAckBooking_Click"/>
         <Frame x:Name="frame" Content="Aktiva" HorizontalAlignment="Left" Height="378" Margin="10,10,0,0" VerticalAlignment="Top" Width="497"/>
         <Frame x:Name="frame1" Content="Passiva" HorizontalAlignment="Left" Height="378" Margin="512,10,0,0" VerticalAlignment="Top" Width="389"/>
         <Label x:Name="label" Content="1. Gebäude" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top"/>
@@ -52,6 +52,7 @@
         <TextBox x:Name="tbSalesTaxes" HorizontalAlignment="Left" Height="22" Margin="767,180,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=SalesTaxes.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbSumActiva" HorizontalAlignment="Left" Height="22" Margin="260,393,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding SumOfAll, Mode=OneWay, StringFormat=C, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbSumPassiva" HorizontalAlignment="Left" Height="22" Margin="767,393,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding SumOfAll, Mode=OneWay, StringFormat=C, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="lstBookings" HorizontalAlignment="Left" Height="89" Margin="465,420,0,0" VerticalAlignment="Top" Width="422"/>
 
     </Grid>
 </Window>

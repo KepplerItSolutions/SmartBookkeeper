@@ -76,7 +76,7 @@ namespace SmartBookGUI
 
         private void btnAckBooking_Click(object sender, RoutedEventArgs e)
         {
-            _stockAccounts.Book(tbAccountFrom.Text, tbAccountTo.Text, AmmountToBook);
+            lstBookings.Items.Add(_stockAccounts.Book(tbAccountFrom.Text, tbAccountTo.Text, AmmountToBook));
         }
     }
 }

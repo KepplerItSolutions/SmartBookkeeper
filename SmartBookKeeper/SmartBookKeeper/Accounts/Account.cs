@@ -115,5 +115,10 @@ namespace SmartBookKeeper.BookingSystem.Accounts
                 PropertyChanged(this, new PropertyChangedEventArgs(Name));
             }            
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
