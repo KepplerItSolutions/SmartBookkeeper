@@ -1,0 +1,17 @@
+﻿<Window x:Class="SmartBookGUI.Forms.Booking.BookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartBookGUI.Forms.Booking"
+        mc:Ignorable="d"
+        Title="BookingWindow" Height="300" Width="600">
+    <Grid>
+        <ComboBox x:Name="debitAccoutns" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="creditAccounts" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbAmmount" HorizontalAlignment="Left" Height="23" Margin="295,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="295,151,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button1" Content="_Abbruch" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,239,0,0"/>
+        <Button x:Name="btnBook" Content="_Buchen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="507,239,0,0" Click="btnBook_Click"/>
+    </Grid>
+</Window>

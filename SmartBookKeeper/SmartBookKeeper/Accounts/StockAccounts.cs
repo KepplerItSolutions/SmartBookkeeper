@@ -18,6 +18,20 @@ namespace SmartBookKeeper.BookingSystem.Accounts
 
         public BalanceOfAccountsActive ActivaAccounts { get; set; }
         public BalanceOfAccountsPassive PassivaAccounts { get; set; }
+        public List<Account> AllAccounts
+        {
+            get
+            {
+                if (_allAccounts == null || (PassivaAccounts.Count + ActivaAccounts.Count != _allAccounts.Count))
+                {
+                    _allAccounts = new List<Account>();
+                    _allAccounts.AddRange(ActivaAccounts);
+                    _allAccounts.AddRange(PassivaAccounts);
+                }
+                return _allAccounts;
+            }
+        }
+        List<Account> _allAccounts;
 
         public Account this[string key]
         {
@@ -69,7 +83,7 @@ namespace SmartBookKeeper.BookingSystem.Accounts
                 creditAccount.Ammount += ammount;
             }
 
-            return new BookEntry("", debitAccount, creditAccount, ammount, DateTime.Now);
+            return new BookEntry("RE 33422198", debitAccount, creditAccount, ammount, DateTime.Now);
         }
     }
 }

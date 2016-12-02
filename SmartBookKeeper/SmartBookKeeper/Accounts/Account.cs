@@ -9,13 +9,14 @@ namespace SmartBookKeeper.BookingSystem.Accounts
 {
     public abstract class Account : List<Account>, INotifyPropertyChanged
     {
-        public Account(string name)
+        public Account(string name, string accountNumber)
         {
             Name = name;
+            AccountNumber = accountNumber;
         }
 
-        public Account(string name, Account parent)
-            :this(name)
+        public Account(string name, string accountNumber, Account parent)
+            :this(name, accountNumber)
         {
             ParentAccount = parent;
         }
@@ -69,6 +70,19 @@ namespace SmartBookKeeper.BookingSystem.Accounts
             }
         }
         double _sumOfAll;
+
+        public string AccountNumber
+        {
+            get { return _accountNumber; }
+            set
+            {
+                if (value != _accountNumber)
+                {
+                    _accountNumber = value;
+                    OnPropertyChanged("AccountNumber");
+                }
+            } }
+        string _accountNumber;
 
         public Account this[string key]
         {

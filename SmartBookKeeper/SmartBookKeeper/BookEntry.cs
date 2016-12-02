@@ -1,9 +1,6 @@
 ﻿using SmartBookKeeper.BookingSystem.Accounts;
+using SmartBookKeeper.BookingSystem.Paticipants;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmartBookKeeper.BookingSystem
 {
@@ -19,12 +16,16 @@ namespace SmartBookKeeper.BookingSystem
             CreationDate = DateTime.Now;
         }
 
+        public long ID { get; private set; }
         public String BillingNumber { get; private set; }
         public Account DebitAccount { get; private set; }
         public Account CreditAccount { get; private set; }
         public double Ammount { get; private set; }
         public DateTime CreationDate { get; private set; }
         public DateTime ValueDate { get; private set; }
+        public DateTime BillingDate { get; private set; }
+        public Participant PaticipanntOfBooking { get; private set; }
+        public bool Booked { get; set; }
 
         public override string ToString()
         {

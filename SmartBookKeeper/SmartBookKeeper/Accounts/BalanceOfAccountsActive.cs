@@ -12,20 +12,20 @@ namespace SmartBookKeeper.BookingSystem.Accounts
     public class BalanceOfAccountsActive : Account
     {
         public BalanceOfAccountsActive()
-            :base("Aktiva")
+            :base("Aktiva", "0500")
         {
-            Buildings = new ActiveAccount("Gebäude", this);
-            Machines = new ActiveAccount("Maschinen", this);
-            CarPool = new ActiveAccount("Fuhrpark", this);
-            OfficeEquipement = new ActiveAccount("Geschäftsausstattung", this);
-            RawMaterials = new ActiveAccount("Rohstoffe", this);
-            AuxiliaryMaterials = new ActiveAccount("Hilfsstoffe", this);
-            Consumables = new ActiveAccount("Betriebsstoffe", this);
-            GoodsInProcess = new ActiveAccount("Unfertige Erzeugnisse", this);
-            FinishedProducts = new ActiveAccount("Fertige Erzeugnisse", this);
-            Receivables = new ActiveAccount("Forderungen", this);
-            Cash = new ActiveAccount("Kasse", this);
-            Bank = new ActiveAccount("Bank", this);
+            Buildings = new ActiveAccount("Gebäude", "0501", this);
+            Machines = new ActiveAccount("Maschinen", "0502", this);
+            CarPool = new ActiveAccount("Fuhrpark", "0503", this);
+            OfficeEquipement = new ActiveAccount("Geschäftsausstattung", "0504", this);
+            RawMaterials = new ActiveAccount("Rohstoffe", "0505", this);
+            AuxiliaryMaterials = new ActiveAccount("Hilfsstoffe", "0506", this);
+            Consumables = new ActiveAccount("Betriebsstoffe", "0507", this);
+            GoodsInProcess = new ActiveAccount("Unfertige Erzeugnisse", "0508", this);
+            FinishedProducts = new ActiveAccount("Fertige Erzeugnisse", "0509", this);
+            Receivables = new ActiveAccount("Forderungen", "0510", this);
+            Cash = new ActiveAccount("Kasse", "0511", this);
+            Bank = new ActiveAccount("Bank","0512", this);
 
             this.AddRange(new Account[] {
                 Buildings,
