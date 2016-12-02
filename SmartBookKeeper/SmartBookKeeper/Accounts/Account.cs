@@ -16,7 +16,7 @@ namespace SmartBookKeeper.BookingSystem.Accounts
 
     public class Account : List<Account>, INotifyPropertyChanged
     {
-        public Account(string name)
+        public Account(string name, string accountNumber)
         {
             Name = name;
             AccountNumber = accountNumber;
@@ -139,9 +139,9 @@ namespace SmartBookKeeper.BookingSystem.Accounts
             }            
             }            
 
-        public Account AddNewAccount(string nameOfAccount, Account parant, AccountType typeOfAccount)
+        public Account AddNewAccount(string nameOfAccount, Account parant, AccountType typeOfAccount, string accountNumber)
         {
-            Account newAccount = new Account(nameOfAccount, parant);
+            Account newAccount = new Account(nameOfAccount, accountNumber, parant);
             newAccount.TypeOfAccount = typeOfAccount;
             this.Add(newAccount);
             return newAccount;

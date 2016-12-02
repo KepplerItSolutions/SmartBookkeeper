@@ -14,35 +14,20 @@ namespace SmartBookKeeper.BookingSystem.Accounts
         public BalanceOfAccountsActive()
             :base("Aktiva", "0500")
         {
-            Buildings = new ActiveAccount("Gebäude", "0501", this);
-            Machines = new ActiveAccount("Maschinen", "0502", this);
-            CarPool = new ActiveAccount("Fuhrpark", "0503", this);
-            OfficeEquipement = new ActiveAccount("Geschäftsausstattung", "0504", this);
-            RawMaterials = new ActiveAccount("Rohstoffe", "0505", this);
-            AuxiliaryMaterials = new ActiveAccount("Hilfsstoffe", "0506", this);
-            Consumables = new ActiveAccount("Betriebsstoffe", "0507", this);
-            GoodsInProcess = new ActiveAccount("Unfertige Erzeugnisse", "0508", this);
-            FinishedProducts = new ActiveAccount("Fertige Erzeugnisse", "0509", this);
-            Receivables = new ActiveAccount("Forderungen", "0510", this);
-            Cash = new ActiveAccount("Kasse", "0511", this);
-            Bank = new ActiveAccount("Bank","0512", this);
-
-            this.AddRange(new Account[] {
-                Buildings,
-                Machines,
-                CarPool,
-                OfficeEquipement,
-                RawMaterials,
-                AuxiliaryMaterials,
-                Consumables,
-                GoodsInProcess,
-                FinishedProducts,
-                Receivables,
-                Cash,
-                Bank                
-            });
-
+            Buildings = this.AddNewAccount("Gebäude", this, AccountType.Active, "0501");
+            Machines = this.AddNewAccount("Maschinen", this, AccountType.Active, "0502");
+            CarPool = this.AddNewAccount("Fuhrpark", this, AccountType.Active, "0503");
+            OfficeEquipement = this.AddNewAccount("Geschäftsausstattung", this, AccountType.Active, "0504");
+            RawMaterials = this.AddNewAccount("Rohstoffe", this, AccountType.Active, "0505");
+            AuxiliaryMaterials = this.AddNewAccount("Hilfsstoffe", this, AccountType.Active, "0506");
+            Consumables = this.AddNewAccount("Betriebsstoffe", this, AccountType.Active, "0507");
+            GoodsInProcess = this.AddNewAccount("Unfertige Erzeugnisse", this, AccountType.Active, "0508");
+            FinishedProducts = this.AddNewAccount("Fertige Erzeugnisse", this, AccountType.Active, "0509");
+            Receivables = this.AddNewAccount("Forderungen", this, AccountType.Active, "0510");
+            Cash = this.AddNewAccount("Kasse", this, AccountType.Active, "0511");
+            Bank = this.AddNewAccount("Bank", this, AccountType.Active, "0512");
         }
+
         public Account Buildings { get; set; }
         public Account Machines { get; set; }
         public Account CarPool { get; set; }
