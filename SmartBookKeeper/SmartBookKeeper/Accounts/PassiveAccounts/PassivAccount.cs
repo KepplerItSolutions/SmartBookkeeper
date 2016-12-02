@@ -8,8 +8,8 @@ namespace SmartBookKeeper.BookingSystem.Accounts.PassiveAccounts
 {
     public class PassivAccount : Account
     {
-        public PassivAccount(string name, Account parent)
-            :base(name, parent)
+        public PassivAccount(string name,string accountNumber, Account parent)
+            :base(name,accountNumber, parent)
         {
 
         }

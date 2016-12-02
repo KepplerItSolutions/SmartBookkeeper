@@ -19,10 +19,11 @@ namespace SmartBookKeeper.BookingSystem.Accounts
         public Account(string name)
         {
             Name = name;
+            AccountNumber = accountNumber;
         }
 
-        public Account(string name, Account parent)
-            :this(name)
+        public Account(string name, string accountNumber, Account parent)
+            :this(name, accountNumber)
         {
             ParentAccount = parent;
         }
@@ -77,7 +78,20 @@ namespace SmartBookKeeper.BookingSystem.Accounts
             }
         }
         double _sumOfAll;
-        // TODO: Childs Eigenschaft implmentieren
+
+        public string AccountNumber
+        {
+            get { return _accountNumber; }
+            set
+            {
+                if (value != _accountNumber)
+                {
+                    _accountNumber = value;
+                    OnPropertyChanged("AccountNumber");
+                }
+            } }
+        string _accountNumber;
+
         public Account this[string key]
         {
             get
@@ -123,7 +137,7 @@ namespace SmartBookKeeper.BookingSystem.Accounts
             {
                 eventhandler(this, new PropertyChangedEventArgs(Name));
             }            
-        }
+            }            
 
         public Account AddNewAccount(string nameOfAccount, Account parant, AccountType typeOfAccount)
         {

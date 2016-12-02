@@ -1,4 +1,5 @@
-﻿using SmartBookKeeper.BookingSystem;
+﻿using SmartBookGUI.Forms.Booking;
+using SmartBookKeeper.BookingSystem;
 using SmartBookKeeper.BookingSystem.Accounts;
 using System;
 using System.Collections.Generic;
@@ -23,11 +24,13 @@ namespace SmartBookGUI
     public partial class MainWindow : Window
     {
         StockAccounts _stockAccounts;
+        List<BookEntry> bookEntries;
 
         public MainWindow()
         {
             InitializeComponent();
             _stockAccounts = new StockAccounts();
+            bookEntries = new List<BookEntry>();
 
             _stockAccounts.ActivaAccounts.AuxiliaryMaterials.Ammount = 320000;
             _stockAccounts.ActivaAccounts.Bank.Ammount = 940000;
@@ -70,13 +73,31 @@ namespace SmartBookGUI
             tbCash.DataContext = _stockAccounts.ActivaAccounts;
             tbBank.DataContext = _stockAccounts.ActivaAccounts;
             tbSumActiva.DataContext = _stockAccounts.ActivaAccounts;
+
+            lstBookings.ItemsSource = bookEntries;
         }
 
         public double AmmountToBook { get; set; }
 
         private void btnAckBooking_Click(object sender, RoutedEventArgs e)
         {
-            lstBookings.Items.Add(_stockAccounts.Book(tbAccountFrom.Text, tbAccountTo.Text, AmmountToBook));
+            if (lstBookings.SelectedItem != null)
+            {
+                BookEntry entry = (BookEntry)lstBookings.SelectedItem;
+                if (!entry.Booked)
+                {
+                    _stockAccounts.Book(entry.DebitAccount.Name, entry.CreditAccount.Name, entry.Ammount);
+                }                
+            }
+        }
+
+        private void btnCreateBooking_Click(object sender, RoutedEventArgs e)
+        {
+            BookingWindow bookWin = new BookingWindow(_stockAccounts.AllAccounts, bookEntries);
+            bookWin.ShowDialog();            
+            lstBookings.ItemsSource = null;
+            lstBookings.ItemsSource = bookEntries;
+            lstBookings.DisplayMemberPath = "BillingNumber";
         }
     }
 }

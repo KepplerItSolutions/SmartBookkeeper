@@ -12,13 +12,22 @@ namespace SmartBookKeeper.BookingSystem.Accounts
     public class BalanceOfAccountsPassive : Account
     {
         public BalanceOfAccountsPassive()
-            :base("Passiva")
+            :base("Passiva", "4000")
         {
-            Equity = this.AddNewAccount("Eigenkapital", this, AccountType.Passive);
-            Mortages = this.AddNewAccount("Hypothek", this, AccountType.Passive);
-            Loan = this.AddNewAccount("Darlehen", this, AccountType.Passive);
-            Liability = this.AddNewAccount("Verbindlichkeiten", this, AccountType.Passive);
-            SalesTaxes = this.AddNewAccount("Umsatzsteuer", this, AccountType.Passive);
+            Equity = new PassivAccount("Eigenkapital", "4001", this);
+            Mortages = new PassivAccount("Hypothek", "4002", this);
+            Loan = new PassivAccount("Darlehen", "4003", this);
+            Liability = new PassivAccount("Verbindlichkeiten", "4004", this);
+            SalesTaxes = new PassivAccount("Umsatzsteuer", "4005", this);
+
+            this.AddRange(new Account[]
+            {
+                Equity,
+                Mortages,
+                Loan,
+                Liability,
+                SalesTaxes
+            });
         }
 
         public Account Equity { get; set; }

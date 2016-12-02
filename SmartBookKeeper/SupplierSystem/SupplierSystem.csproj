@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5109ADEB-1821-4916-95C9-FFA6A9163077}</ProjectGuid>
+    <ProjectGuid>{4EED056D-3D17-40CB-A599-4AB1DEE1A3BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartBookKeeper.BookingSystem</RootNamespace>
-    <AssemblyName>BookingSystem</AssemblyName>
+    <RootNamespace>SupplierSystem</RootNamespace>
+    <AssemblyName>SupplierSystem</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,21 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts\Account.cs" />
-    <Compile Include="Accounts\ActiveAccounts\ActiveAccount.cs" />
-    <Compile Include="Accounts\BalanceOfAccountsActive.cs" />
-    <Compile Include="Accounts\BalanceOfAccountsPassive.cs" />
-    <Compile Include="Accounts\PassiveAccounts\PassivAccount.cs" />
-    <Compile Include="Accounts\StockAccounts.cs" />
-    <Compile Include="BookEntry.cs" />
-    <Compile Include="Paticipants\Addresses\Address.cs" />
-    <Compile Include="Paticipants\Bank\BankAccount.cs" />
-    <Compile Include="Paticipants\Customers\Customer.cs" />
-    <Compile Include="Paticipants\Participant.cs" />
-    <Compile Include="Paticipants\Suppliers\Supplier.cs" />
+    <Compile Include="Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

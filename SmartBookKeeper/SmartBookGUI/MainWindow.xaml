@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartBookGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="549.858" Width="918.562" WindowState="Maximized">
+        Title="MainWindow" Height="549.858" Width="1063.895" WindowState="Maximized">
     <Grid>
         <TextBox x:Name="tbAccountFrom" HorizontalAlignment="Left" Height="23" Margin="10,489,0,0" TextWrapping="Wrap" Text="Rohstoffe" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbAmmount" Text="{Binding Path=AmmountToBook, StringFormat='C',UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="135,489,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -52,7 +52,8 @@
         <TextBox x:Name="tbSalesTaxes" HorizontalAlignment="Left" Height="22" Margin="767,180,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding Path=SalesTaxes.Ammount, StringFormat='C', UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbSumActiva" HorizontalAlignment="Left" Height="22" Margin="260,393,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding SumOfAll, Mode=OneWay, StringFormat=C, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbSumPassiva" HorizontalAlignment="Left" Height="22" Margin="767,393,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding SumOfAll, Mode=OneWay, StringFormat=C, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="lstBookings" HorizontalAlignment="Left" Height="89" Margin="465,420,0,0" VerticalAlignment="Top" Width="422"/>
+        <ListBox x:Name="lstBookings" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="89" Margin="465,420,0,0" VerticalAlignment="Top" Width="581"/>
+        <Button x:Name="btnCreateBooking" Content="neu" HorizontalAlignment="Left" Margin="385,467,0,0" VerticalAlignment="Top" Width="75" Click="btnCreateBooking_Click"/>
 
     </Grid>
 </Window>
