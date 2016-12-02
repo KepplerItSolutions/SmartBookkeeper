@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartBookKeeper.BookingSystem.Accounts.ActiveAccounts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,7 +8,13 @@ using System.Threading.Tasks;
 
 namespace SmartBookKeeper.BookingSystem.Accounts
 {
-    public abstract class Account : List<Account>, INotifyPropertyChanged
+    public enum AccountType
+    {
+        Active,
+        Passive
+    }
+
+    public class Account : List<Account>, INotifyPropertyChanged
     {
         public Account(string name)
         {
@@ -20,6 +27,7 @@ namespace SmartBookKeeper.BookingSystem.Accounts
             ParentAccount = parent;
         }
 
+        public AccountType TypeOfAccount { get; set; }
         public Account ParentAccount { get; set; }
 
         public String Name
@@ -69,7 +77,7 @@ namespace SmartBookKeeper.BookingSystem.Accounts
             }
         }
         double _sumOfAll;
-
+        // TODO: Childs Eigenschaft implmentieren
         public Account this[string key]
         {
             get
@@ -110,10 +118,19 @@ namespace SmartBookKeeper.BookingSystem.Accounts
 
         private void OnPropertyChanged(string Name)
         {
-            if (PropertyChanged != null)
+            var eventhandler = PropertyChanged;
+            if (eventhandler != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(Name));
+                eventhandler(this, new PropertyChangedEventArgs(Name));
             }            
+        }
+
+        public Account AddNewAccount(string nameOfAccount, Account parant, AccountType typeOfAccount)
+        {
+            Account newAccount = new Account(nameOfAccount, parant);
+            newAccount.TypeOfAccount = typeOfAccount;
+            this.Add(newAccount);
+            return newAccount;
         }
 
         public override string ToString()

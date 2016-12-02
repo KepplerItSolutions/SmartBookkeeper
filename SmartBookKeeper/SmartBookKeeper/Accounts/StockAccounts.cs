@@ -51,7 +51,7 @@ namespace SmartBookKeeper.BookingSystem.Accounts
             Account creditAccount = this[creditName];
             Account debitAccount = this[debitName];
 
-            if (debitAccount is ActiveAccount)
+            if (debitAccount.TypeOfAccount == AccountType.Active)
             {
                 debitAccount.Ammount += ammount;
             }
@@ -60,7 +60,7 @@ namespace SmartBookKeeper.BookingSystem.Accounts
                 debitAccount.Ammount -= ammount;
             }
 
-            if (creditAccount is ActiveAccount)
+            if (creditAccount.TypeOfAccount == AccountType.Active)
             {
                 creditAccount.Ammount -= ammount;
             }
