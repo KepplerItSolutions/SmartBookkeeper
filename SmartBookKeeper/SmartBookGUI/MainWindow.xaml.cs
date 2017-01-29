@@ -1,4 +1,5 @@
-﻿using SmartBookGUI.Forms.Booking;
+﻿using SmartBookGUI.Forms;
+using SmartBookGUI.Forms.Booking;
 using SmartBookKeeper.BookingSystem;
 using SmartBookKeeper.BookingSystem.Accounts;
 using System;
@@ -98,6 +99,12 @@ namespace SmartBookGUI
             lstBookings.ItemsSource = null;
             lstBookings.ItemsSource = bookEntries;
             lstBookings.DisplayMemberPath = "BillingNumber";
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            SmartBookMainWin window = new SmartBookMainWin();
+            window.Show();
         }
     }
 }

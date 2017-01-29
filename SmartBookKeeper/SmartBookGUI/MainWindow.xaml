@@ -54,6 +54,7 @@
         <TextBox x:Name="tbSumPassiva" HorizontalAlignment="Left" Height="22" Margin="767,393,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding SumOfAll, Mode=OneWay, StringFormat=C, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <ListBox x:Name="lstBookings" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="89" Margin="465,420,0,0" VerticalAlignment="Top" Width="581"/>
         <Button x:Name="btnCreateBooking" Content="neu" HorizontalAlignment="Left" Margin="385,467,0,0" VerticalAlignment="Top" Width="75" Click="btnCreateBooking_Click"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="949,393,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
 
     </Grid>
 </Window>
